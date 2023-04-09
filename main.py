@@ -25,7 +25,7 @@ def resize_image(image, size=(150, 150)):
     img = img.resize(size)
     return np.array(img)
 
-@app.post("/predict")
+@app.post("/braintumor/predict")
 async def predict(
     file: UploadFile = File(...)
 ):

@@ -7,6 +7,8 @@ import tensorflow as tf
 
 app = FastAPI()
 
+# uvicorn main:app --host 0.0.0.0 --port 8000  
+
 MODEL = tf.keras.models.load_model("tumor_model.h5")
 
 CLASS_NAMES = ['glioma_tumor','meningioma_tumor','no_tumor','pituitary_tumor']
@@ -43,4 +45,4 @@ async def predict(
     }
 
 if __name__ == "__main__":
-    uvicorn.run(app, host='localhost', port=8000)
+    uvicorn.run(app, host='0.0.0.0', port=8000)
